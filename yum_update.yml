@@ -1,0 +1,13 @@
+---
+- name: Create Cron for yum on all nodes
+  hosts: demo
+  tasks:
+        - cron:
+                name: yum update
+                weekday: 0
+                minute: 5
+                hour: 8
+                user: root
+                job: "yum -y update"
+                cron_file: ansible_yum
+
